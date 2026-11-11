@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  reverse-proxy:
+    build:
+      context: ./nginx
+    container_name: reverse-proxy
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - portfolio-frontend
+      - clouddrive-backend
+    networks:
+      - devops-network
+
+  portfolio-frontend:
+    build:
+      context: ./portfolio
+    container_name: portfolio-frontend
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - devops-network
+
+  clouddrive-backend:
+    build:
+      context: ./clouddrive
+    container_name: clouddrive-backend
+    restart: always
+    expose:
+      - "8080"
+    networks:
+      - devops-network
+
+networks:
+  devops-network:
+    driver: bridge

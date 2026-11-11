@@ -1,0 +1,29 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify Docker Compose Configuration
+        run: |
+          docker compose config
+
+      - name: Build and Test Portfolio Image
+        run: |
+          docker build -t raheem-portfolio:test ./portfolio
+
+      - name: Build and Test Nginx Reverse Proxy Image
+        run: |
+          docker build -t reverse-proxy:test ./nginx
+
+      - name: Build and Test CloudDrive Backend Image
+        run: |
+          docker build -t clouddrive-backend:test ./clouddrive
