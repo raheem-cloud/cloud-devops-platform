@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Raheem D | Cloud & DevOps Engineer</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --border: #1f2937;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --success: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "JetBrains Mono", system-ui, -apple-system, monospace; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 2.5rem 1rem; }
+    .container { max-width: 860px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 2.5rem; }
+    .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--card-bg); border: 1px solid var(--border); padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.8rem; margin-bottom: 1rem; }
+    .status-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 8px var(--success); }
+    h1 { font-size: 2.25rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; letter-spacing: -0.025em; }
+    .role { color: var(--accent); font-size: 1.05rem; font-weight: 500; }
+    .bio { color: var(--muted); margin-top: 0.8rem; max-width: 650px; margin-left: auto; margin-right: auto; font-size: 0.95rem; }
+    .links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.25rem; }
+    .links a { color: var(--accent); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--border); padding: 0.4rem 0.9rem; border-radius: 6px; background: var(--card-bg); transition: all 0.2s ease; }
+    .links a:hover { border-color: var(--accent); background: var(--accent-glow); }
+    .section-title { font-size: 1.2rem; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin: 2.5rem 0 1.25rem; color: #fff; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-badge { background: var(--card-bg); border: 1px solid var(--border); padding: 0.35rem 0.75rem; border-radius: 6px; font-size: 0.85rem; color: #e5e7eb; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; transition: border-color 0.2s ease; }
+    .card:hover { border-color: var(--accent); }
+    .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.4rem; }
+    .card h3 { font-size: 1.1rem; color: #fff; }
+    .card-tag { font-size: 0.75rem; background: var(--accent-glow); color: var(--accent); border: 1px solid var(--accent); padding: 0.15rem 0.5rem; border-radius: 4px; }
+    .card p { color: var(--muted); font-size: 0.9rem; }
+    .live-link { display: inline-block; margin-top: 0.75rem; color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+    .live-link:hover { text-decoration: underline; }
+    .arch-box { background: #070a11; border: 1px solid var(--border); border-radius: 6px; padding: 1rem; font-size: 0.8rem; color: #d1d5db; overflow-x: auto; margin-top: 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="status-badge">
+        <span class="status-dot"></span> Production Cluster: Healthy
+      </div>
+      <h1>Mohammed Raheem D</h1>
+      <div class="role">Cloud & DevOps Engineer</div>
+      <p class="bio">Engineering automated containerized workflows, robust reverse-proxy routing, and high-availability cloud infrastructure on AWS and Linux environments.</p>
+      <div class="links">
+        <a href="https://github.com/raheem-cloud" target="_blank">GitHub</a>
+        <a href="https://drive.raheemcloud.tech" target="_blank">CloudDrive App</a>
+        <a href="mailto:contact@raheemcloud.tech">Email</a>
+      </div>
+    </header>
+
+    <h2 class="section-title">Technical Expertise</h2>
+    <div class="skills-grid">
+      <span class="skill-badge">AWS (EC2, S3, IAM, Route 53)</span>
+      <span class="skill-badge">Docker & Containerization</span>
+      <span class="skill-badge">Nginx Reverse Proxy & SSL/TLS</span>
+      <span class="skill-badge">Linux / Ubuntu Administration</span>
+      <span class="skill-badge">CI/CD & GitHub Actions</span>
+      <span class="skill-badge">Python (Flask, Boto3)</span>
+      <span class="skill-badge">Git & Version Control</span>
+    </div>
+
+    <h2 class="section-title">Live Architecture & Microservices</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>CloudDrive Storage Application</h3>
+        <span class="card-tag">Port 8080</span>
+      </div>
+      <p>Secure cloud storage engine powered by Flask, SQLite/S3 object backend, and Gunicorn. Features multi-user authentication, file encryption at rest, and automated asset generation.</p>
+      <a class="live-link" href="https://drive.raheemcloud.tech" target="_blank">Launch App (drive.raheemcloud.tech) &rarr;</a>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Production Traffic Routing & Security</h3>
+        <span class="card-tag">Port 80 / 443</span>
+      </div>
+      <p>Custom reverse proxy setup terminating SSL/TLS certificates through automated Let's Encrypt renewal and intelligently routing apex vs subdomain traffic to containerized upstream services.</p>
+      <div class="arch-box">
+DNS (Namecheap) &rarr; Cloudflare/Edge &rarr; Nginx Reverse Proxy (80/443)
+  ├── Host: raheemcloud.tech       &rarr; portfolio-frontend:80
+  └── Host: drive.raheemcloud.tech &rarr; clouddrive-backend:8080
+      </div>
+    </div>
+  </div>
+</body>
+</html>
