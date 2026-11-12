@@ -1,7 +1,7 @@
 import os
 import uuid
 import sqlite3
-from clouddrive.database import init_db
+from database import init_db
 from flask import Flask, render_template, request, redirect, url_for, session, send_file, flash, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
@@ -9,7 +9,7 @@ from storage import upload_file_blob, get_file_blob_path
 
 app = Flask(__name__)
 
-app.secret_key = "cloud-drive-secret-key-raheem-secure"
+app.secret_key = os.environ.get("SECRET_KEY", "cloud-drive-secret-key-raheem-secure")
 
 DB_NAME = "clouddrive.db"
 
@@ -97,7 +97,6 @@ def upload():
     file.seek(0, os.SEEK_END)
     size = file.tell()
     file.seek(0)
-    
     upload_file_blob(file, unique_key)
     
     conn = get_db()
