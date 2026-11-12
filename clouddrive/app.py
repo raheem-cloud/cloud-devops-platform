@@ -1,12 +1,14 @@
 import os
 import uuid
 import sqlite3
+from clouddrive.database import init_db
 from flask import Flask, render_template, request, redirect, url_for, session, send_file, flash, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from storage import upload_file_blob, get_file_blob_path
 
 app = Flask(__name__)
+
 app.secret_key = "cloud-drive-secret-key-raheem-secure"
 
 DB_NAME = "clouddrive.db"
@@ -154,5 +156,8 @@ def delete_file(file_id):
     conn.close()
     return redirect(url_for("index"))
 
+init_db()
+os.makedirs("uploads", exist_ok=True)
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=False)
